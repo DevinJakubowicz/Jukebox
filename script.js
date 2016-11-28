@@ -20,3 +20,15 @@ function play_audio()
 {
  player.play();
 } 
+
+function pause_audio() 
+{
+ player.pause();
+}
+
+
+function stop_audio() 
+{
+ player.pause();
+ player.currentTime = 0;
+}
