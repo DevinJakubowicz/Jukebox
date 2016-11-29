@@ -6,38 +6,60 @@
 // 		}	
 // }
 
+var audio;
+var dir = ""
+var playlist ["","",""];
+var playlist_index = 0;
+var ext = ".mp3";
+
+audio = new Audio();
+audio.src = dir +playlist[0]+ext;
+audio.loop = false;
 
 
+function Jukebox () {
 
-document.addEventListener("DOMContentLoaded", function() { startplayer(); }, true);
-var player;
+		songlibrary = [];
 
-function startplayer() 
-{
- player = document.getElementById('music_player');
- player.controls = false;
-}
+		this.songlibrary = songlibrary;
 
+		this.addSong = function(newTrack) {
 
-function play_audio() 
-{
- player.play();
-} 
+			this.songlibrary.push(newTrack);
+		}
 
-function pause_audio() 
-{
- player.pause();
-}
+	};
 
 
-function stop_audio() 
-{
- player.pause();
- player.currentTime = 0;
-}
+// document.addEventListener("DOMContentLoaded", function() { startplayer(); }, true);
+// var Jukebox;
 
-function change_vol()
-{
- player.volume=document.getElementById("change_vol").value;
-}
+// function startplayer() 
+// {
+//  Jukebox = document.getElementById('player');
+//  // player.controls = false;
+// }
+
+
+// function play_audio() 
+// {
+//  Jukebox.play();
+// } 
+
+// function pause_audio() 
+// {
+//  Jukebox.pause();
+// }
+
+
+// function stop_audio() 
+// {
+//  Jukebox.pause();
+//  Jukebox.currentTime = 0;
+// }
+
+// function change_vol()
+// {
+//  Jukebox.volume=document.getElementById("change_vol").value;
+// }
 
