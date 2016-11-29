@@ -3,6 +3,11 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+	
+	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 
@@ -18,10 +23,12 @@
 
 <input type="image" src="http://www.myiconfinder.com/uploads/iconsets/128-128-f53b4ab743ce25cc599e7384e68c8f07.png" onclick="stop_audio()">
 
+<img src="https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/volume-24-128.png" id="vol_img">
+
+<input type="range" onchange="change_vol()" step="0.05" min="0" max="1" value="1">
+
 </div>
 </div>
 
-
-<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
