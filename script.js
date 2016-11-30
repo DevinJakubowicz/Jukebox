@@ -2,7 +2,7 @@
 function Jukebox () {
 
 
-	var audio, playButton, pauseButton, stopButton, nextSong, playPause, switchSong;
+	var audio, playButton, pauseButton, stopButton, nextSong, play, pause, switchSong;
 	var dir = "../Jukebox/";
 	var playlist = ["kidRock","Hozier","deathCab"];
 	var playlist_index = 0;
@@ -13,8 +13,8 @@ function Jukebox () {
 	stopButton = document.getElementById("stopBtn");
 	nextSong = document.getElementById("nextBtn");
 
-	playButton = playButton.addEventListener("click", playPause);
-	pauseButton = pauseButton.addEventListener("click", playPause);
+	playButton = playButton.addEventListener("click", play);
+	pauseButton = pauseButton.addEventListener("click", pause);
 	stopButton = stopButton.addEventListener("click", stop);
 	nextSong = nextSong.addEventListener("click", switchSong);
 	audio = new Audio();
@@ -44,19 +44,21 @@ function Jukebox () {
 
 
 
-		this.playPause = function () {
-			if (audio.play) {
+		this.play = function () {
+			
 				audio.play();
-				// playButton.style.background = url("https://cdn3.iconfinder.com/data/icons/player/128/sound-08-128.png"), no-repeat;
-			}
 				
 		}
 
+		this.pause = function () {
+
+				audio.pause();
+		}
+
 		this.stop = function () {
-			if (audio.stopped) {
-				audio.stopped = false;
-				// stopButton.style.background = url("http://www.myiconfinder.com/uploads/iconsets/128-128-f53b4ab743ce25cc599e7384e68c8f07.png"), no-repeat;
-			}
+		
+				audio.pause();
+			
 		}				
 };
 
