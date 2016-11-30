@@ -1,19 +1,26 @@
 
-
-var audio;
-var dir = ""
-var playlist ["","",""];
-var playlist_index = 0;
-var ext = ".mp3";
-var playButton = playButton.addEventListener("click", playPause)
-var pauseButton = pauseButton.addEventListener("click", playPause)
-var stopButton = stopButton.addEventListener("click", stop)
-audio = new Audio();
-audio.src = dir +playlist[0]+ext;
-audio.loop = false;
-audio.play_audio();
-
 function Jukebox () {
+
+
+	var audio, playButton, pauseButton, stopButton, nextSong, playPause, switchSong;
+	var dir = "../Jukebox/";
+	var playlist = ["kidRock","Hozier","deathCab"];
+	var playlist_index = 0;
+	var ext = ".mp3";
+
+	playButton = document.getElementById("playBtn");
+	pauseButton = document.getElementById("pauseBtn");
+	stopButton = document.getElementById("stopBtn");
+	nextSong = document.getElementById("nextBtn");
+
+	playButton = playButton.addEventListener("click", playPause);
+	pauseButton = pauseButton.addEventListener("click", playPause);
+	stopButton = stopButton.addEventListener("click", stop);
+	nextSong = nextSong.addEventListener("click", switchSong);
+	audio = new Audio();
+	audio.src = dir+playlist[0]+ext;
+	audio.loop = false;
+	audio.play();
 
 		songlibrary = [];
 
@@ -26,7 +33,7 @@ function Jukebox () {
 
 		this.switchSong = function (){
 			if (playlist_index == (playlist.length - 1)){
-				playlist_index = 0:
+				playlist_index = 0;
 			}
 				else {
 					playlist_index++;
@@ -38,30 +45,21 @@ function Jukebox () {
 
 
 		this.playPause = function () {
-			if (audio.paused) {
+			if (audio.play) {
 				audio.play();
-				playButton.style.background = url("https://cdn3.iconfinder.com/data/icons/player/128/sound-08-128.png") no-repeat;
+				// playButton.style.background = url("https://cdn3.iconfinder.com/data/icons/player/128/sound-08-128.png"), no-repeat;
 			}
-				else {
-					audio.pause();
-					playButton.style.background = url("https://cdn0.iconfinder.com/data/icons/most-useful-icons/50/PAUSE-128.png") no-repeat;
-				}
+				
 		}
 
 		this.stop = function () {
 			if (audio.stopped) {
 				audio.stopped = false;
-				stopButton.style.background = url("http://www.myiconfinder.com/uploads/iconsets/128-128-f53b4ab743ce25cc599e7384e68c8f07.png") no-repeat;
+				// stopButton.style.background = url("http://www.myiconfinder.com/uploads/iconsets/128-128-f53b4ab743ce25cc599e7384e68c8f07.png"), no-repeat;
 			}
-				else {
-					audio.stopped = true;
-					stopButton.style.background = url("http://www.myiconfinder.com/uploads/iconsets/128-128-f53b4ab743ce25cc599e7384e68c8f07.png")
-				}
-		}
+		}				
+};
 
-
-
-	};
-
+window.addEventListener("load", Jukebox);
 
 
